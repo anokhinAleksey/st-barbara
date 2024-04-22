@@ -1,0 +1,50 @@
+services:
+  postgres:
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+    image: "postgres:16.2-bookworm"
+    volumes:
+      - "postgres:/var/lib/postgresql/data"
+    ports:
+      - "${DOCKER_DB_PORT_FORWARD:-5432}:${PORT:-5432}"
+
+  redis:
+    image: "redis:7.2.4-bookworm"
+    volumes:
+      - "redis:/data"
+
+  web:
+    build:
+      context: "."
+      args:
+        - "UID=${UID:-1000}"
+        - "GID=${GID:-1000}"
+        - "DEBUG=${DEBUG:-false}"
+        - "NODE_ENV=${NODE_ENV:-production}"
+    depends_on:
+      postgres:
+        condition: "service_started"
+        required: false
+      redis:
+        condition: "service_started"
+        required: false
+    env_file:
+      - ".env"
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "3s"
+    tty: true
+    volumes:
+      - "${DOCKER_WEB_VOLUME:-./build_public:/app/build_public}"
+    ports:
+      - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
+
+  # worker:
+  #   <<: *default-app
+  #   command: celery -A config worker -l "${CELERY_LOG_LEVEL:-info}"
+  #   entrypoint: []
+
+volumes:
+  postgres: {}
+  redis: {}

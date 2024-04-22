@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-22 23:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: common/templates/common/home.html:10
+msgid "Latest news"
+msgstr "Последние новости"
+
+#: config/settings.py:143
+msgid "English"
+msgstr "Английский"
+
+#: config/settings.py:144
+msgid "Ukrainian"
+msgstr "Украинский"
+
+#: config/settings.py:145
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/layouts/login.html:7 templates/layouts/main.html:8
+msgid "St. Barbara Orthodox Cathedral"
+msgstr "Православный собор святой Варвары"
+
+#: templates/layouts/main.html:34
+msgid "St. Barbara<br>Orthodox<br>Cathedral"
+msgstr "Православный<br>собор<br>святой Варвары"
+
+#: templates/layouts/main.html:47
+msgid "St. Barbara Orthodox<br>Cathedral"
+msgstr "Православный собор<br>святой Варвары"
+
+#: templates/layouts/main.html:57
+msgid "Home"
+msgstr "Домашняя"
+
+#: templates/layouts/main.html:60
+msgid "About"
+msgstr "О нас"
+
+#: templates/layouts/main.html:63
+msgid "Calendar"
+msgstr "Календарь"
+
+#: templates/layouts/main.html:66
+msgid "Contacts"
+msgstr "Контакты"
+
+#: templates/layouts/main.html:100
+msgid "Login"
+msgstr "Войти"
+
+#: templates/layouts/main.html:113
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/layouts/main.html:117
+msgid "Page editor"
+msgstr "Редактор страниц"
+
+#: templates/layouts/main.html:124
+msgid "Log out"
+msgstr "Выйти"
+
+#: templates/layouts/main.html:142
+msgid "St. Barbara Orthodox Cathedral in Edmonton"
+msgstr "Православный собор святой Варвары в Эдмонтоне"
+
+#: users/templates/login.html:8
+msgid "Please sign in"
+msgstr "Пожалуйста авторизуйтесь"
+
+#: users/templates/login.html:11
+msgid "Username"
+msgstr "Логин"
+
+#: users/templates/login.html:15
+msgid "Password"
+msgstr "Пароль"
+
+#: users/templates/login.html:17
+msgid "Sign in"
+msgstr "Войти"
+
+#~ msgid "News"
+#~ msgstr "Новости"
+
+#~ msgid "Gallery"
+#~ msgstr "Галерея"

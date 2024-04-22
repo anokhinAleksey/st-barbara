@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block body %}
+  <div class="row">
+    <div class="col">
+        <h1>{{ news.title }}</h1>
+        <p>Published at {{ news.published_at }}</p>
+        <p>Author {{ news.author }}</p>
+        <p>{{ news.text }}</p>  
+    </div>
+    <div class="col-3">
+        <section id="ortox_collection-10" class="widget ortox_widget_collection">
+          <script src="https://orthodox-calendar.info/calendar/cli/jsCalIndex.js?v=723"></script> 
+          <link rel="stylesheet" type="text/css" href="https://orthodox-calendar.info/calendar/cli/jsCalStyles.css?v=723">
+          <div class="orthodox-calendar-info">
+            <table width="100%" border="0" class="nav-day">
+              <tbody>
+                <tr>
+                  <td style="text-align: left;">
+                    <a href="javascript:void(0);" id="alcal_step_back" title="Попередній">◄</a>
+                  </td>
+                  <td style="text-align: center;">
+                    <h4>Календар</h4>
+                  </td>
+                  <td style="text-align: right;">
+                    <a href="javascript:void(0);" id="alcal_step_forward" title="Наступний день">►</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <span id="alcal_print_icon"></span>
+            <span id="alcal_print_day"></span>
+            <span id="alcal_print_week"></span>
+            <span id="alcal_print_trapeza"></span>
+            <span id="alcal_print_saints"></span>
+          </div>
+        </section>
+    </div>
+  </div>
+{% endblock %}

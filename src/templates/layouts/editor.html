@@ -1,0 +1,149 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <title>{% block title %}{% translate "St. Barbara Orthodox Cathedral" %}{% endblock %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Oficial website of the St. Barbara Russian Orthodox Cathedral in Edmonton">
+
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#61b9d2">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="d-flex flex-column">
+    <header>
+      <div class="container-fluid bg-body-tertiary d-none d-lg-flex justify-content-center pt-4 pb-2">
+        <a class="d-flex align-items-center link-underline-opacity-0 link-dark" href="{% url 'home' %}">
+          <div>
+            <img src="{% static 'images/st_barbara.png' %}" class="rounded me-3" alt="St. Barbara" height="140">
+          </div>
+          <div class="text-uppercase lh-lg fs-5">
+            {% translate "St. Barbara<br>Orthodox<br>Cathedral" %}
+          </div>
+        </a>
+          
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" aria-label="Navigation">
+        <div class="container-xl">
+          <a class="navbar-brand d-flex d-lg-none align-items-center" href="{% url 'home' %}">
+            <div>
+              <img src="{% static 'images/st_barbara.png' %}" class="rounded me-3" alt="St. Barbara" height="40">
+            </div>
+            <div class="fs-6 lh-1">
+              {% translate "St. Barbara Orthodox<br>Cathedral" %}
+            </div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-lg-flex" id="navbar">
+            <div class="col-lg-3"></div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-lg-6 justify-content-lg-center">
+              <li class="nav-item">
+                <a class="fs-5 nav-link text-uppercase" href="{% url 'home' %}">{% translate "Home" %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="fs-5 nav-link text-uppercase" href="{% url 'about' %}">{% translate "About" %}</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="fs-5 nav-link text-uppercase">{% translate "Calendar" %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="fs-5 nav-link text-uppercase" href="{% url 'contacts' %}">{% translate "Contacts" %}</a>
+              </li>
+            </ul>
+            <div class="mb-2 mb-lg-0 d-lg-flex justify-content-lg-end">
+              <hr class="d-lg-none my-2">
+              <ul class="navbar-nav flex-row flex-wrap ms-lg-auto">
+                <li class="nav-item col-12 col-lg-auto">
+                  <hr class="d-lg-none my-2">
+                </li>    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-5 text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% get_static_prefix %}images/flags/{{LANGUAGE_CODE}}.svg" width="40px">&nbsp;<span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end fs-5 text-uppercase">
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                      <form id="logout-form-{{ language.code }}" method="post" action="{% url 'set_language' %}">
+                        {% csrf_token %}
+                        <input name="language" type="hidden" value="{{ language.code }}">
+                        <button class="btn btn-link link-underline-opacity-0 link-dark fs-5 text-uppercase" type="submit">
+                          {% comment %} <img src="{% get_static_prefix %}images/flags/{{ language.code }}.svg" width="40px"> {% endcomment %}
+                          {{ language.name_local }}
+                        </button>
+                      </form>
+                    {% endfor %}
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            {% if user.is_authenticated == False %}
+              <div class="mb-2 mb-lg-0 d-lg-flex col-lg-2 justify-content-lg-end">
+                <hr class="d-lg-none my-2">
+                <a href="{% url 'login' %}" class="fs-5 nav-link text-uppercase">{% translate "Login" %}</a>
+              </div>
+            {% else %}
+              <ul class="navbar-nav flex-row flex-wrap ms-lg-auto">
+                <li class="nav-item col-12 col-lg-auto">
+                  <hr class="d-lg-none my-2">
+                </li>    
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle fs-5 text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ user.first_name }} {{ user.last_name }}
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end fs-5 text-uppercase">
+                    <li>
+                      <a href="{% url 'user-profile' %}" class="fs-5 dropdown-item text-uppercase">{% translate "Profile" %}</a>
+                    </li>
+                    {% if perms.news.can_change_news %}
+                      <li>
+                        <a href="{% url 'user-profile' %}" class="fs-5 dropdown-item text-uppercase">{% translate "Page editor" %}</a>
+                      </li>
+                    {% endif %}
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <form id="logout-form" method="post" action="/logout">
+                        {% csrf_token %}
+                        <button class="btn btn-link link-underline-opacity-0 link-dark fs-5 text-uppercase" type="submit">{% translate "Log out" %}</button>
+                      </form>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-xl pt-3">
+        {% block body %}{% endblock %}
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">© 2023-{% now "Y" %} {% translate "St. Barbara Orthodox Cathedral in Edmonton" %}</span>
+      </div>
+    </footer>
+  </body>
+  <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/vendor/jquery-3.7.1.min.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  {% block javasript %}{% endblock %}
+</html>

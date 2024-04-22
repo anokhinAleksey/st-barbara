@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-22 23:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: common/templates/common/home.html:10
+msgid "Latest news"
+msgstr ""
+
+#: config/settings.py:143
+msgid "English"
+msgstr ""
+
+#: config/settings.py:144
+msgid "Ukrainian"
+msgstr ""
+
+#: config/settings.py:145
+msgid "Russian"
+msgstr ""
+
+#: templates/layouts/login.html:7 templates/layouts/main.html:8
+msgid "St. Barbara Orthodox Cathedral"
+msgstr ""
+
+#: templates/layouts/main.html:34
+msgid "St. Barbara<br>Orthodox<br>Cathedral"
+msgstr ""
+
+#: templates/layouts/main.html:47
+msgid "St. Barbara Orthodox<br>Cathedral"
+msgstr ""
+
+#: templates/layouts/main.html:57
+msgid "Home"
+msgstr ""
+
+#: templates/layouts/main.html:60
+msgid "About"
+msgstr ""
+
+#: templates/layouts/main.html:63
+msgid "Calendar"
+msgstr ""
+
+#: templates/layouts/main.html:66
+msgid "Contacts"
+msgstr ""
+
+#: templates/layouts/main.html:100
+msgid "Login"
+msgstr ""
+
+#: templates/layouts/main.html:113
+msgid "Profile"
+msgstr ""
+
+#: templates/layouts/main.html:117
+msgid "Page editor"
+msgstr ""
+
+#: templates/layouts/main.html:124
+msgid "Log out"
+msgstr ""
+
+#: templates/layouts/main.html:142
+msgid "St. Barbara Orthodox Cathedral in Edmonton"
+msgstr ""
+
+#: users/templates/login.html:8
+msgid "Please sign in"
+msgstr ""
+
+#: users/templates/login.html:11
+msgid "Username"
+msgstr ""
+
+#: users/templates/login.html:15
+msgid "Password"
+msgstr ""
+
+#: users/templates/login.html:17
+msgid "Sign in"
+msgstr ""

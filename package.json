@@ -1,0 +1,27 @@
+{
+  "name": "st-barbara",
+  "private": true,
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "gulp-cli": "^3.0.0",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "del": "^3.0.0",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^2.0.0",
+    "sass": "^1.75.0"
+  }
+}
